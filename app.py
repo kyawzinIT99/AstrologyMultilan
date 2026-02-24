@@ -148,15 +148,27 @@ def init_chat():
     """Initialize a new chat session and return the greeting."""
     sess = get_session_data()
     lang = request.args.get("lang", sess.get("lang", "my"))
-    if lang in ("my", "en"):
-        sess["lang"] = lang
-    greeting = engine.get_greeting_message(lang=sess["lang"])
+    if lang not in ("my", "en"):
+        lang = "my"
+        
+    # Reset session properties for a fresh chat but keep the session ID
+    sess.update({
+        "state": "greeting",
+        "name": None,
+        "dob": None,
+        "is_wednesday_pm": False,
+        "reading": None,
+        "history": [],
+        "lang": lang
+    })
+
+    greeting = engine.get_greeting_message(lang=lang)
     sess["history"].append({"role": "bot", "content": greeting})
     return jsonify({
         "response": greeting,
         "state": "greeting",
-        "lang": sess["lang"],
-        "hints": HINTS.get(sess["lang"], HINTS["my"]),
+        "lang": lang,
+        "hints": HINTS.get(lang, HINTS["my"]),
     })
 
 
