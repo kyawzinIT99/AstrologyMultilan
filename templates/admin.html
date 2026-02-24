@@ -360,30 +360,30 @@
 
         <div class="header">
             <h1>🔮 Admin Dashboard</h1>
-            <p>ရက်ချိန်း စီမံခန့်ခွဲရန်</p>
+            <p>Manage Appointments</p>
         </div>
 
         <div class="stats">
             <div class="stat-card stat-pending">
                 <div class="num" id="pendingCount">0</div>
-                <div class="label">စောင့်ဆိုင်းနေဆဲ</div>
+                <div class="label">Pending</div>
             </div>
             <div class="stat-card stat-confirmed">
                 <div class="num" id="confirmedCount">0</div>
-                <div class="label">အတည်ပြုပြီး</div>
+                <div class="label">Confirmed</div>
             </div>
             <div class="stat-card stat-total">
                 <div class="num" id="totalCount">0</div>
-                <div class="label">စုစုပေါင်း</div>
+                <div class="label">Total</div>
             </div>
         </div>
 
         <div class="toolbar">
             <div class="filter-btns">
-                <button class="filter-btn active" onclick="filterBookings('all', this)">အားလုံး</button>
-                <button class="filter-btn" onclick="filterBookings('pending', this)">စောင့်ဆိုင်းနေဆဲ</button>
-                <button class="filter-btn" onclick="filterBookings('confirmed', this)">အတည်ပြုပြီး</button>
-                <button class="filter-btn" onclick="filterBookings('rejected', this)">ပယ်ချပြီး</button>
+                <button class="filter-btn active" onclick="filterBookings('all', this)">All</button>
+                <button class="filter-btn" onclick="filterBookings('pending', this)">Pending</button>
+                <button class="filter-btn" onclick="filterBookings('confirmed', this)">Confirmed</button>
+                <button class="filter-btn" onclick="filterBookings('rejected', this)">Rejected</button>
             </div>
             <div style="display:flex; gap: 8px;">
                 <span style="color: var(--text-muted); font-size: 11px; padding: 5px 0;">n8n ↔ Sheets + SMS</span>
@@ -391,33 +391,33 @@
         </div>
 
         <div class="card">
-            <h2>📄 မဟာဘုတ် ၆ လ ဟောစာတမ်း PDF ထုတ်ရန်</h2>
+            <h2>📄 Generate 6-Month Mahabote PDF</h2>
 
             <!-- Year mode toggle -->
             <div style="display: flex; align-items: center; gap: 12px; margin-bottom: 4px;">
-                <span style="font-size: 12px; color: var(--text-muted);">နှစ်ရိုက်ထည့်ပုံစံ:</span>
+                <span style="font-size: 12px; color: var(--text-muted);">Year Format:</span>
                 <button type="button" id="yearModeBtn" onclick="toggleYearMode()" style="padding: 4px 14px; border-radius: 20px; border: 1px solid var(--accent-primary);
                            background: rgba(139,92,246,0.15); color: var(--accent-secondary);
                            font-family: 'Padauk'; font-size: 12px; cursor: pointer;">
-                    📅 CE (ခရစ်နှစ်)
+                    📅 CE (Gregorian)
                 </button>
                 <span id="yearModeHint" style="font-size: 11px; color: var(--text-muted);">
-                    ✏️ ဥပမာ - 1988
+                    ✏️ e.g. 1988
                 </span>
             </div>
 
             <form id="pdfForm" onsubmit="generatePDF(event)" style="display: flex; flex-direction: column; gap: 12px;">
-                <input type="text" id="pdfName" placeholder="အမည်" required
+                <input type="text" id="pdfName" placeholder="Name" required
                     style="padding: 10px; border-radius: 8px; border: 1px solid var(--border-subtle); background: rgba(0,0,0,0.2); color: white; font-family: 'Padauk';">
 
                 <!-- Custom date row: Day / Month / Year -->
                 <div style="display: grid; grid-template-columns: 1fr 1fr 2fr; gap: 8px;">
-                    <input type="number" id="pdfDay" placeholder="ရက် (DD)" min="1" max="31" required
+                    <input type="number" id="pdfDay" placeholder="Day (DD)" min="1" max="31" required
                         style="padding: 10px; border-radius: 8px; border: 1px solid var(--border-subtle); background: rgba(0,0,0,0.2); color: white; font-family: 'Padauk';">
-                    <input type="number" id="pdfMonth" placeholder="လ (MM)" min="1" max="12" required
+                    <input type="number" id="pdfMonth" placeholder="Month (MM)" min="1" max="12" required
                         style="padding: 10px; border-radius: 8px; border: 1px solid var(--border-subtle); background: rgba(0,0,0,0.2); color: white; font-family: 'Padauk';">
                     <div style="position: relative;">
-                        <input type="number" id="pdfYear" placeholder="နှစ်" min="1" required oninput="updateYearHint()"
+                        <input type="number" id="pdfYear" placeholder="Year" min="1" required oninput="updateYearHint()"
                             style="padding: 10px; border-radius: 8px; border: 1px solid var(--border-subtle); background: rgba(0,0,0,0.2); color: white; font-family: 'Padauk'; width: 100%;">
                         <div id="cePreview"
                             style="font-size: 10px; color: var(--accent-teal); margin-top: 3px; min-height: 14px;">
@@ -427,11 +427,11 @@
 
                 <label
                     style="font-size: 13px; color: var(--text-secondary); display: flex; align-items: center; gap: 8px;">
-                    <input type="checkbox" id="pdfIsWedPm"> ဗုဒ္ဓဟူး ညနေ (ရာဟု) ဖွားဖြစ်ပါသလား?
+                    <input type="checkbox" id="pdfIsWedPm"> Born on Wednesday Afternoon (Rahu)?
                 </label>
                 <button type="submit" id="pdfBtn" class="btn"
                     style="background: var(--accent-primary); color: white; border: none; font-size: 14px; padding: 10px; justify-content: center; margin-top: 5px;">
-                    PDF ထုတ်မည်
+                    Generate PDF
                 </button>
             </form>
             <div id="pdfResult" style="margin-top: 15px; font-size: 13px; text-align: center; display: none;"></div>
@@ -439,7 +439,7 @@
 
         <div class="card">
             <div id="bookingsList">
-                <div class="empty">ရက်ချိန်း မရှိသေးပါ</div>
+                <div class="empty">No appointments yet</div>
             </div>
         </div>
     </div>
@@ -491,28 +491,28 @@
             const filtered = currentFilter === 'all' ? allBookings : allBookings.filter(b => b.status === currentFilter);
 
             if (filtered.length === 0) {
-                list.innerHTML = '<div class="empty">ရက်ချိန်း မရှိသေးပါ</div>';
+                list.innerHTML = '<div class="empty">No appointments yet</div>';
                 return;
             }
 
             const topics = {
-                general: 'အထွေထွေ', love: 'အချစ်ရေး', career: 'အလုပ်အကိုင်',
-                finance: 'ငွေကြေး', health: 'ကျန်းမာရေး', family: 'မိသားစု', tarot: 'Tarot'
+                general: 'General', love: 'Love', career: 'Career',
+                finance: 'Finance', health: 'Health', family: 'Family', tarot: 'Tarot'
             };
 
             list.innerHTML = filtered.map(b => {
                 const badgeClass = b.status === 'confirmed' ? 'badge-confirmed' :
                     b.status === 'rejected' ? 'badge-rejected' : 'badge-pending';
-                const badgeText = b.status === 'confirmed' ? 'အတည်ပြုပြီး' :
-                    b.status === 'rejected' ? 'ပယ်ချပြီး' : 'စောင့်ဆိုင်းနေဆဲ';
-                const topic = topics[b.topic] || b.topic || 'အထွေထွေ';
+                const badgeText = b.status === 'confirmed' ? 'Confirmed' :
+                    b.status === 'rejected' ? 'Rejected' : 'Pending';
+                const topic = topics[b.topic] || b.topic || 'General';
 
                 // SMS messages
                 const confirmMsg = encodeURIComponent(
-                    `မင်္ဂလာပါ ${b.name}။ Dr.Tarot မဟာဘုတ် ဗေဒင် & Tarot မှ အကြောင်းကြားပါသည်။ သင့်ရက်ချိန်း ${b.date} ရက် ${b.time} အချိန်တွင် အတည်ပြုပြီးပါပြီ။ ကျေးဇူးတင်ပါသည်။ 🔮`
+                    `Hello ${b.name}. Dr.Tarot Mahabote Astrology & Tarot would like to inform you that your appointment on ${b.date} at ${b.time} has been confirmed. Thank you. 🔮`
                 );
                 const rejectMsg = encodeURIComponent(
-                    `မင်္ဂလာပါ ${b.name}။ Dr.Tarot မဟာဘုတ် ဗေဒင် & Tarot မှ အကြောင်းကြားပါသည်။ သင့်ရက်ချိန်း ${b.date} ရက် ${b.time} အချိန်ကို ပယ်ဖျက်ရပါသည်။ အခြားရက် ပြန်လည်ယူပါ။ 🙏`
+                    `Hello ${b.name}. Dr.Tarot Mahabote Astrology & Tarot would like to inform you that your appointment on ${b.date} at ${b.time} has been cancelled. Please book another date. 🙏`
                 );
 
                 const isPending = b.status === 'pending';
@@ -532,12 +532,12 @@
                         </div>
                         <div class="actions">
                             ${isPending ? `
-                                <a href="sms:${b.phone}?body=${confirmMsg}" class="btn btn-confirm" onclick="updateStatus('${b.booking_id}', 'confirmed')">✅ အတည်ပြု SMS</a>
-                                <a href="sms:${b.phone}?body=${rejectMsg}" class="btn btn-reject" onclick="updateStatus('${b.booking_id}', 'rejected')">❌ ပယ်ချ SMS</a>
+                                <a href="sms:${b.phone}?body=${confirmMsg}" class="btn btn-confirm" onclick="updateStatus('${b.booking_id}', 'confirmed')">✅ Confirm SMS</a>
+                                <a href="sms:${b.phone}?body=${rejectMsg}" class="btn btn-reject" onclick="updateStatus('${b.booking_id}', 'rejected')">❌ Reject SMS</a>
                             ` : `
-                                <a href="sms:${b.phone}" class="btn btn-sms">💬 SMS ပို့ရန်</a>
+                                <a href="sms:${b.phone}" class="btn btn-sms">💬 Send SMS</a>
                             `}
-                            <button class="btn btn-reject" style="margin-left:auto" onclick="deleteBooking('${b.booking_id}')">🗑️ ဖျက်မည်</button>
+                            <button class="btn btn-reject" style="margin-left:auto" onclick="deleteBooking('${b.booking_id}')">🗑️ Delete</button>
                         </div>
                     </div>
                 `;
@@ -579,16 +579,16 @@
             const hint = document.getElementById('yearModeHint');
             if (yearMode === 'CE') {
                 yearMode = 'BE';
-                btn.innerHTML = '🌙 BE (ဗုဒ္ဓနှစ်)';
+                btn.innerHTML = '🌙 BE (Buddhist Era)';
                 btn.style.borderColor = 'var(--accent-gold)';
                 btn.style.color = 'var(--accent-gold)';
-                hint.textContent = '✏️ ဥပမာ - 2531 (= 1988 CE)';
+                hint.textContent = '✏️ e.g. 2531 (= 1988 CE)';
             } else {
                 yearMode = 'CE';
-                btn.innerHTML = '📅 CE (ခရစ်နှစ်)';
+                btn.innerHTML = '📅 CE (Gregorian)';
                 btn.style.borderColor = 'var(--accent-primary)';
                 btn.style.color = 'var(--accent-secondary)';
-                hint.textContent = '✏️ ဥပမာ - 1988';
+                hint.textContent = '✏️ e.g. 1988';
             }
             updateYearHint();
         }
@@ -600,10 +600,10 @@
             if (!val || isNaN(val)) { preview.textContent = ''; return; }
             if (yearMode === 'BE') {
                 const ce = val - 543;
-                preview.textContent = `→ ခရစ်နှစ်: ${ce}`;
+                preview.textContent = `→ CE Year: ${ce}`;
             } else {
                 const be = val + 543;
-                preview.textContent = `→ ဗုဒ္ဓနှစ်: ${be} BE`;
+                preview.textContent = `→ BE Year: ${be} BE`;
             }
         }
 
@@ -623,7 +623,7 @@
 
             if (!name || isNaN(day) || isNaN(month) || isNaN(year) || year < 1 || year > 9999) {
                 resultDiv.style.display = 'block';
-                resultDiv.innerHTML = `<span style="color: var(--accent-red)">❌ နာမည် / ရက်စွဲ ပြည့်စုံစွာ ဖြည့်ပါ</span>`;
+                resultDiv.innerHTML = `<span style="color: var(--accent-red)">❌ Please enter a valid name and date</span>`;
                 return;
             }
 
@@ -644,7 +644,7 @@
 
                 resultDiv.style.display = 'block';
                 if (res.ok) {
-                    resultDiv.innerHTML = `<a href="${data.url}" target="_blank" style="color: var(--accent-teal); text-decoration: underline;">✅ ${name} အတွက် PDF ဒေါင်းလုဒ်ရယူရန် နှိပ်ပါ</a>`;
+                    resultDiv.innerHTML = `<a href="${data.url}" target="_blank" style="color: var(--accent-teal); text-decoration: underline;">✅ Click here to download PDF for ${name}</a>`;
                 } else {
                     resultDiv.innerHTML = `<span style="color: var(--accent-red)">❌ Error: ${data.error}</span>`;
                 }
