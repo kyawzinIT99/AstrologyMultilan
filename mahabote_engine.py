@@ -26,22 +26,22 @@ EIGHT_DAY_WEEK = {
     # myanmar_calendar weekday: 0=Sat, 1=Sun, 2=Mon, 3=Tue, 4=Wed, 5=Thu, 6=Fri
     # traditional planet IDs: Sun=1, Mon=2, Tue=3, Wed=4, Thu=5, Fri=6, Sat=0, Rahu=7
     0: {"name_mm": "စနေ", "name_en": "Saturday", "planet_mm": "စနေဂြိုဟ်", "planet_en": "Saturn",
-        "animal_mm": "နဂါး", "animal_en": "Dragon/Naga", "direction_mm": "အနောက်တောင်", "planet_id": 0},
+        "animal_mm": "နဂါး", "animal_en": "Dragon/Naga", "direction_mm": "အနောက်တောင်", "direction_en": "Southwest", "planet_id": 0},
     1: {"name_mm": "တနင်္ဂနွေ", "name_en": "Sunday", "planet_mm": "နေဂြိုဟ်", "planet_en": "Sun",
-        "animal_mm": "ဂဠုန်", "animal_en": "Garuda", "direction_mm": "အရှေ့မြောက်", "planet_id": 1},
+        "animal_mm": "ဂဠုန်", "animal_en": "Garuda", "direction_mm": "အရှေ့မြောက်", "direction_en": "Northeast", "planet_id": 1},
     2: {"name_mm": "တနင်္လာ", "name_en": "Monday", "planet_mm": "လဂြိုဟ်", "planet_en": "Moon",
-        "animal_mm": "ကျား", "animal_en": "Tiger", "direction_mm": "အရှေ့", "planet_id": 2},
+        "animal_mm": "ကျား", "animal_en": "Tiger", "direction_mm": "အရှေ့", "direction_en": "East", "planet_id": 2},
     3: {"name_mm": "အင်္ဂါ", "name_en": "Tuesday", "planet_mm": "အင်္ဂါဂြိုဟ်", "planet_en": "Mars",
-        "animal_mm": "ခြင်္သေ့", "animal_en": "Lion", "direction_mm": "အရှေ့တောင်", "planet_id": 3},
+        "animal_mm": "ခြင်္သေ့", "animal_en": "Lion", "direction_mm": "အရှေ့တောင်", "direction_en": "Southeast", "planet_id": 3},
     4: {"name_mm": "ဗုဒ္ဓဟူး", "name_en": "Wednesday", "planet_mm": "ဗုဒ္ဓဂြိုဟ်", "planet_en": "Mercury",
-        "animal_mm": "ဆင်(အစွယ်ရှိ)", "animal_en": "Tusked Elephant", "direction_mm": "တောင်", "planet_id": 4},
+        "animal_mm": "ဆင်(အစွယ်ရှိ)", "animal_en": "Tusked Elephant", "direction_mm": "တောင်", "direction_en": "South", "planet_id": 4},
     5: {"name_mm": "ကြာသပတေး", "name_en": "Thursday", "planet_mm": "ကြာသပတေးဂြိုဟ်", "planet_en": "Jupiter",
-        "animal_mm": "ကြွက်", "animal_en": "Rat", "direction_mm": "အနောက်", "planet_id": 5},
+        "animal_mm": "ကြွက်", "animal_en": "Rat", "direction_mm": "အနောက်", "direction_en": "West", "planet_id": 5},
     6: {"name_mm": "သောကြာ", "name_en": "Friday", "planet_mm": "သောကြာဂြိုဟ်", "planet_en": "Venus",
-        "animal_mm": "ပူးဂဗ်", "animal_en": "Guinea Pig", "direction_mm": "မြောက်", "planet_id": 6},
+        "animal_mm": "ပူးဂဗ်", "animal_en": "Guinea Pig", "direction_mm": "မြောက်", "direction_en": "North", "planet_id": 6},
     # Rahu = Wednesday afternoon
     7: {"name_mm": "ရာဟု", "name_en": "Rahu (Wed PM)", "planet_mm": "ရာဟုဂြိုဟ်", "planet_en": "Rahu",
-        "animal_mm": "ဆင်(အစွယ်မဲ့)", "animal_en": "Tuskless Elephant", "direction_mm": "အနောက်မြောက်", "planet_id": 7},
+        "animal_mm": "ဆင်(အစွယ်မဲ့)", "animal_en": "Tuskless Elephant", "direction_mm": "အနောက်မြောက်", "direction_en": "Northwest", "planet_id": 7},
 }
 
 
@@ -67,6 +67,7 @@ HOUSES = {
             "comes later in life, especially in teaching and mentoring roles."
         ),
         "strengths_mm": ["စိတ်ဓာတ်ကြံ့ခိုင်မှု", "အလုပ်ကြိုးစားမှု", "ဆရာအတတ်ပညာ"],
+        "strengths_en": ["Mental Strength", "Hardworking", "Teaching"],
         "weaknesses_mm": ["စိတ်မတည်ငြိမ်မှု", "ငွေကြေးအတက်အကျ", "စိတ်ပူပန်မှု"],
     },
     1: {
@@ -86,6 +87,7 @@ HOUSES = {
             "Maintaining integrity and health is their primary life lesson. They have deep hidden wisdom."
         ),
         "strengths_mm": ["ခံနိုင်ရည်ရှိမှု", "နက်နဲသောဉာဏ်", "သမာဓိ"],
+        "strengths_en": ["Endurance", "Deep Wisdom", "Integrity"],
         "weaknesses_mm": ["ကျန်းမာရေးပြဿနာ", "အတင်းအဖျင်းခံရမှု", "စိတ်ဖိစီးမှု"],
     },
     2: {
@@ -103,6 +105,7 @@ HOUSES = {
             "You are a natural steward of resources and deeply connected to your roots."
         ),
         "strengths_mm": ["ငွေစုဆောင်းနိုင်မှု", "မိသားစုကိုတန်ဖိုးထားမှု", "တည်ငြိမ်မှု"],
+        "strengths_en": ["Saving Ability", "Family Values", "Stability"],
         "weaknesses_mm": ["စိုးရိမ်ပူပန်မှု", "အစွဲအလမ်းကြီးမှု"],
     },
     3: {
@@ -121,6 +124,7 @@ HOUSES = {
             "on the edge but possess remarkable depth. Surviving challenges brings them unique wisdom."
         ),
         "strengths_mm": ["ခံနိုင်ရည်ရှိမှု", "နက်နဲသောအမြင်", "ဝိညာဉ်ရေး"],
+        "strengths_en": ["Endurance", "Deep Insight", "Spirituality"],
         "weaknesses_mm": ["ကျန်းမာရေးအန္တရာယ်", "စိတ်ဖိစီးမှု", "ဆုံးရှုံးလွယ်မှု"],
     },
     4: {
@@ -138,6 +142,7 @@ HOUSES = {
             "They command respect and take on heavy responsibilities with ease, often reaching the top."
         ),
         "strengths_mm": ["အာဏာ", "စီမံခန့်ခွဲမှု", "ပြတ်သားမှု"],
+        "strengths_en": ["Power", "Management", "Decisiveness"],
         "weaknesses_mm": ["မာနကြီးမှု", "တင်းကျပ်မှု"],
     },
     5: {
@@ -156,6 +161,7 @@ HOUSES = {
             "They attract success through dignity and exert a natural influence on their surroundings."
         ),
         "strengths_mm": ["ဂုဏ်သိက္ခာ", "ရက်ရောမှု", "ခေါင်းဆောင်မှု"],
+        "strengths_en": ["Dignity", "Generosity", "Leadership"],
         "weaknesses_mm": ["မာနကြီးမှု", "လွှမ်းမိုးလိုမှု"],
     },
     6: {
@@ -173,6 +179,7 @@ HOUSES = {
             "through creativity and quick thinking, often rising rapidly in their chosen fields."
         ),
         "strengths_mm": ["တီထွင်ဖန်တီးနိုင်မှု", "အောင်မြင်မှု", "ထက်မြက်မှု"],
+        "strengths_en": ["Creativity", "Success", "Intelligence"],
         "weaknesses_mm": ["စိတ်မြန်လက်မြန်ဖြစ်မှု", "ပေါ့ဆမှု"],
     },
 }
@@ -501,14 +508,18 @@ class MahaboteEngine:
             day_display = f"{bd['name_en']} ({bd['planet_en']})"
             planet_display = f"{bd['planet_en']}"
             animal_display = f"{bd['animal_en']}"
+            direction_display = bd.get('direction_en', bd['direction_mm'])
             personality = house.get('personality_en', house['personality_mm'])
+            strengths = house.get('strengths_en', house.get('strengths_mm', []))
         else:
             house_display = f"{house['name_mm']} ({house['name_en']})"
             current_house_display = f"{reading.current_year_house['name_mm']} ({reading.current_year_house['name_en']})"
             day_display = f"{bd['name_mm']} ({bd['name_en']})"
             planet_display = f"{bd['planet_mm']} ({bd['planet_en']})"
             animal_display = f"{bd['animal_mm']} ({bd['animal_en']})"
+            direction_display = bd['direction_mm']
             personality = house['personality_mm']
+            strengths = house.get('strengths_mm', [])
 
         lines = [
             L["title"].format(name=reading.name),
@@ -530,7 +541,7 @@ class MahaboteEngine:
             f"{L['birth_day_label']}: {day_display}",
             f"{L['planet_label']}: {planet_display}",
             f"{L['animal_label']}: {animal_display}",
-            f"{L['direction_label']}: {bd['direction_mm']}",
+            f"{L['direction_label']}: {direction_display}",
             "",
             "═══════════════════════════════════════",
             L["personality"],
@@ -539,7 +550,7 @@ class MahaboteEngine:
             "",
             L["strengths"],
         ]
-        for s in house.get("strengths_mm", []):
+        for s in strengths:
             lines.append(f"  ✅ {s}")
 
         lines.append("")
