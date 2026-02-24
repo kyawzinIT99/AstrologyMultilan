@@ -179,7 +179,98 @@ def set_lang():
 @app.route("/booking")
 def booking_page():
     """Serve the appointment booking page."""
-    return render_template("booking.html")
+    sess = get_session_data()
+    lang = sess.get("lang", "my")
+    
+    # Booking page translations
+    T = {
+        "my": {
+            "title": "ရက်ချိန်း ယူရန် | Dr.Tarot Tarot",
+            "back_btn": "← Chat သို့ ပြန်သွားရန်",
+            "header_title": "Tarot ရက်ချိန်း ယူရန်",
+            "header_desc": "Dr.Tarot နှင့် ဗေဒင် ရက်ချိန်း စီစဉ်ရန်",
+            "form_title": "📝 ရက်ချိန်းအသစ် ယူရန်",
+            "label_name": "အမည် *",
+            "placeholder_name": "သင့်အမည် ရိုက်ထည့်ပါ",
+            "label_phone": "Viber ဖုန်းနံပါတ် (Viber ရှိသော နံပါတ်သာ) *",
+            "placeholder_phone": "09xxxxxxxxx သို့မဟုတ် +959xxxxxxxxx",
+            "warning_phone": "⚠️ Viber ဖြင့် အတည်ပြုနိုင်ခြင်း မရှိပါက ရက်ချိန်း ပျက်ပြယ်ပါမည်။",
+            "label_date": "ရက်စွဲ ရွေးချယ်ပါ *",
+            "label_time": "အချိန် ရွေးချယ်ပါ *",
+            "label_topic": "အကြောင်းအရာ (ရွေးချယ်ပါ)",
+            "topic_general": "အထွေထွေ ဗေဒင်",
+            "topic_love": "အချစ်ရေး",
+            "topic_career": "အလုပ်အကိုင်",
+            "topic_finance": "ငွေကြေးရေးရာ",
+            "topic_health": "ကျန်းမာရေး",
+            "topic_family": "မိသားစု",
+            "topic_tarot": "Tarot Card Reading",
+            "label_note": "မှတ်ချက် (မလိုအပ်ပါ)",
+            "placeholder_note": "ထပ်မံ ပြောကြားလိုသည်များ...",
+            "btn_submit": "📅 ရက်ချိန်း အတည်ပြုရန်",
+            "btn_loading": "⏳ စောင့်ပါ...",
+            "success_title": "ရက်ချိန်း တောင်းဆိုမှု အောင်မြင်ပါသည်!",
+            "ref_text": "ရက်ချိန်း ရည်ညွှန်းအမှတ်:",
+            "payment_title": "ငွေပေးချေရန် လိုအပ်ပါသည် 💰",
+            "payment_desc1": "ရက်ချိန်းကို အပြီးသတ် အတည်ပြုနိုင်ရန် အောက်ပါ KPay အကောင့်သို့",
+            "payment_amt": "၃၀,၀၀၀ ကျပ်",
+            "payment_desc2": "လွှဲပြောင်းပေးပါ:",
+            "payment_note": "ငွေလွှဲပြေစာ (Screenshot) ကို <strong>ရက်ချိန်း ရည်ညွှန်းအမှတ်</strong> နှင့်တကွ Viber မှတစ်ဆင့် ပေးပို့ပေးပါ။ ငွေလွှဲပြေစာ ရရှိမှသာ ရက်ချိန်း အတည်ပြုပေးပါမည်။",
+            "history_title": "📋 ရက်ချိန်း မှတ်တမ်း",
+            "empty_history": "ရက်ချိန်း မရှိသေးပါ။",
+            "alert_phone": "Viber ဖုန်းနံပါတ် အမှန်ကိုသာ ထည့်သွင်းပေးပါ။ (ဥပမာ - 09123456789)",
+            "alert_time": "ကျေးဇူးပြု၍ အချိန် ရွေးချယ်ပါ။",
+            "alert_error": "ရက်ချိန်း ယူရာတွင် အမှားရှိပါသည်။",
+            "alert_server": "ဆာဗာနှင့် ချိတ်ဆက်၍ မရပါ။",
+            "status_confirmed": "အတည်ပြုပြီး",
+            "status_completed": "ပြီးဆုံးပြီး",
+            "status_pending": "စောင့်ဆိုင်းနေဆဲ"
+        },
+        "en": {
+            "title": "Book Appointment | Dr.Tarot",
+            "back_btn": "← Back to Chat",
+            "header_title": "Book Tarot Appointment",
+            "header_desc": "Schedule a session with Dr.Tarot",
+            "form_title": "📝 Request New Appointment",
+            "label_name": "Name *",
+            "placeholder_name": "Enter your name",
+            "label_phone": "Viber Phone Number (Viber only) *",
+            "placeholder_phone": "09xxxxxxxxx or +959xxxxxxxxx",
+            "warning_phone": "⚠️ Appointment will be cancelled if unable to confirm via Viber.",
+            "label_date": "Select Date *",
+            "label_time": "Select Time *",
+            "label_topic": "Topic (Optional)",
+            "topic_general": "General Astrology",
+            "topic_love": "Love & Relationship",
+            "topic_career": "Career",
+            "topic_finance": "Finance",
+            "topic_health": "Health",
+            "topic_family": "Family",
+            "topic_tarot": "Tarot Card Reading",
+            "label_note": "Note (Optional)",
+            "placeholder_note": "Any additional requests...",
+            "btn_submit": "📅 Confirm Appointment",
+            "btn_loading": "⏳ Please wait...",
+            "success_title": "Appointment Requested Successfully!",
+            "ref_text": "Booking Reference:",
+            "payment_title": "Payment Required 💰",
+            "payment_desc1": "To finalize your appointment, please transfer",
+            "payment_amt": "30,000 MMK",
+            "payment_desc2": "to the following KPay account:",
+            "payment_note": "Please send the payment screenshot along with your <strong>Booking Reference</strong> via Viber. Your appointment will only be confirmed upon receiving the receipt.",
+            "history_title": "📋 Booking History",
+            "empty_history": "No bookings yet.",
+            "alert_phone": "Please enter a valid Viber number. (e.g. 09123456789)",
+            "alert_time": "Please select a time.",
+            "alert_error": "Error processing booking request.",
+            "alert_server": "Unable to connect to server.",
+            "status_confirmed": "Confirmed",
+            "status_completed": "Completed",
+            "status_pending": "Pending"
+        }
+    }
+    
+    return render_template("booking.html", lang=lang, t=T[lang], t_json=json.dumps(T[lang]))
 
 
 @app.route("/admin")

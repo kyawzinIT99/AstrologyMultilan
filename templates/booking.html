@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ရက်ချိန်း ယူရန် | Dr.Tarot Tarot</title>
+    <title>{{ t.title }}</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Padauk:wght@400;700&display=swap" rel="stylesheet">
@@ -390,35 +390,35 @@
     <div class="stars-container" id="starsContainer"></div>
 
     <div class="page-container">
-        <a href="/" class="btn-back">← Chat သို့ ပြန်သွားရန်</a>
+        <a href="/" class="btn-back">{{ t.back_btn }}</a>
 
         <div class="page-header">
             <span class="icon">📅</span>
-            <h1>Tarot ရက်ချိန်း ယူရန်</h1>
-            <p>Dr.Tarot နှင့် ဗေဒင် ရက်ချိန်း စီစဉ်ရန်</p>
+            <h1>{{ t.header_title }}</h1>
+            <p>{{ t.header_desc }}</p>
         </div>
 
         <!-- Booking Form -->
         <div class="card" id="bookingFormCard">
-            <h2>📝 ရက်ချိန်းအသစ် ယူရန်</h2>
+            <h2>{{ t.form_title }}</h2>
             <form id="bookingForm" onsubmit="submitBooking(event)">
                 <div class="form-group">
-                    <label>အမည် *</label>
-                    <input type="text" id="bookName" required placeholder="သင့်အမည် ရိုက်ထည့်ပါ">
+                    <label>{{ t.label_name }}</label>
+                    <input type="text" id="bookName" required placeholder="{{ t.placeholder_name }}">
                 </div>
                 <div class="form-group">
-                    <label>Viber ဖုန်းနံပါတ် (Viber ရှိသော နံပါတ်သာ) *</label>
-                    <input type="tel" id="bookPhone" required placeholder="09xxxxxxxxx သို့မဟုတ် +959xxxxxxxxx"
-                        pattern="^(09|\+959)\d{7,9}$" title="Viber ဖုန်းနံပါတ်သည် 09 သို့မဟုတ် +959 ဖြင့် စရပါမည်။">
-                    <small style="color: var(--accent-pink); font-size: 11px; display: block; margin-top: 4px;">⚠️ Viber
-                        ဖြင့် အတည်ပြုနိုင်ခြင်း မရှိပါက ရက်ချိန်း ပျက်ပြယ်ပါမည်။</small>
+                    <label>{{ t.label_phone }}</label>
+                    <input type="tel" id="bookPhone" required placeholder="{{ t.placeholder_phone }}"
+                        pattern="^(09|\+959)\d{7,9}$" title="{{ t.alert_phone }}">
+                    <small style="color: var(--accent-pink); font-size: 11px; display: block; margin-top: 4px;">{{
+                        t.warning_phone }}</small>
                 </div>
                 <div class="form-group">
-                    <label>ရက်စွဲ ရွေးချယ်ပါ *</label>
+                    <label>{{ t.label_date }}</label>
                     <input type="date" id="bookDate" required onclick="this.showPicker()">
                 </div>
                 <div class="form-group">
-                    <label>အချိန် ရွေးချယ်ပါ *</label>
+                    <label>{{ t.label_time }}</label>
                     <div class="time-slots" id="timeSlots">
                         <button type="button" class="time-slot" onclick="selectTime(this, '09:00')">09:00 AM</button>
                         <button type="button" class="time-slot" onclick="selectTime(this, '10:00')">10:00 AM</button>
@@ -433,60 +433,57 @@
                     <input type="hidden" id="bookTime" required>
                 </div>
                 <div class="form-group">
-                    <label>အကြောင်းအရာ (ရွေးချယ်ပါ)</label>
+                    <label>{{ t.label_topic }}</label>
                     <select id="bookTopic">
-                        <option value="general">အထွေထွေ ဗေဒင်</option>
-                        <option value="love">အချစ်ရေး</option>
-                        <option value="career">အလုပ်အကိုင်</option>
-                        <option value="finance">ငွေကြေးရေးရာ</option>
-                        <option value="health">ကျန်းမာရေး</option>
-                        <option value="family">မိသားစု</option>
-                        <option value="tarot">Tarot Card Reading</option>
+                        <option value="general">{{ t.topic_general }}</option>
+                        <option value="love">{{ t.topic_love }}</option>
+                        <option value="career">{{ t.topic_career }}</option>
+                        <option value="finance">{{ t.topic_finance }}</option>
+                        <option value="health">{{ t.topic_health }}</option>
+                        <option value="family">{{ t.topic_family }}</option>
+                        <option value="tarot">{{ t.topic_tarot }}</option>
                     </select>
                 </div>
                 <div class="form-group">
-                    <label>မှတ်ချက် (မလိုအပ်ပါ)</label>
-                    <textarea id="bookNote" placeholder="ထပ်မံ ပြောကြားလိုသည်များ..."></textarea>
+                    <label>{{ t.label_note }}</label>
+                    <textarea id="bookNote" placeholder="{{ t.placeholder_note }}"></textarea>
                 </div>
-                <button type="submit" class="btn-submit" id="btnSubmit">📅 ရက်ချိန်း အတည်ပြုရန်</button>
+                <button type="submit" class="btn-submit" id="btnSubmit">{{ t.btn_submit }}</button>
             </form>
         </div>
 
         <!-- Success Card (hidden) -->
         <div class="card success-card" id="successCard" style="display: none;">
             <span class="check">✅</span>
-            <h2>ရက်ချိန်း တောင်းဆိုမှု အောင်မြင်ပါသည်!</h2>
+            <h2>{{ t.success_title }}</h2>
             <p>
-                ရက်ချိန်း ရည်ညွှန်းအမှတ်:<br>
+                {{ t.ref_text }}<br>
                 <span class="booking-ref" id="bookingRef"></span>
             </p>
 
             <div
                 style="background: rgba(45, 212, 191, 0.1); border: 1px dashed var(--accent-teal); padding: 16px; border-radius: 12px; margin-top: 16px; text-align: left;">
-                <h3 style="color: var(--accent-gold); font-size: 15px; margin-bottom: 8px;">ငွေပေးချေရန် လိုအပ်ပါသည် 💰
-                </h3>
+                <h3 style="color: var(--accent-gold); font-size: 15px; margin-bottom: 8px;">{{ t.payment_title }}</h3>
                 <p style="font-size: 13px; color: var(--text-primary); margin-bottom: 8px;">
-                    ရက်ချိန်းကို အပြီးသတ် အတည်ပြုနိုင်ရန် အောက်ပါ KPay အကောင့်သို့ <strong>၃၀,၀၀၀ ကျပ်</strong>
-                    လွှဲပြောင်းပေးပါ:
+                    {{ t.payment_desc1 }} <strong>{{ t.payment_amt }}</strong> {{ t.payment_desc2 }}
                 </p>
                 <p style="font-size: 14px; font-weight: 700; color: var(--accent-primary); margin-bottom: 8px;">
                     KPay: 0943093480<br>
-                    အမည်: Dr.Tarot
+                    Name: Dr.Tarot
                 </p>
                 <p style="font-size: 12px; color: var(--text-secondary);">
-                    ငွေလွှဲပြေစာ (Screenshot) ကို <strong>ရက်ချိန်း ရည်ညွှန်းအမှတ်</strong> နှင့်တကွ Viber မှတစ်ဆင့်
-                    ပေးပို့ပေးပါ။ ငွေလွှဲပြေစာ ရရှိမှသာ ရက်ချိန်း အတည်ပြုပေးပါမည်။
+                    {{ t.payment_note | safe }}
                 </p>
             </div>
             <br>
-            <a href="/" class="btn-back" style="justify-content: center;">← Chat သို့ ပြန်သွားရန်</a>
+            <a href="/" class="btn-back" style="justify-content: center;">{{ t.back_btn }}</a>
         </div>
 
         <!-- My Bookings -->
         <div class="card" id="myBookingsCard">
-            <h2>📋 ရက်ချိန်း မှတ်တမ်း</h2>
+            <h2>{{ t.history_title }}</h2>
             <div id="bookingsList">
-                <div class="empty-state">ရက်ချိန်း မရှိသေးပါ။</div>
+                <div class="empty-state">{{ t.empty_history }}</div>
             </div>
         </div>
 
@@ -494,6 +491,7 @@
     </div>
 
     <script>
+        const t = {{ t_json | safe }};
         let selectedTime = '';
 
         // Stars
@@ -526,18 +524,18 @@
             const phoneVal = document.getElementById('bookPhone').value.trim();
             const viberRegex = /^(09|\+959)\d{7,9}$/;
             if (!viberRegex.test(phoneVal)) {
-                alert('Viber ဖုန်းနံပါတ် အမှန်ကိုသာ ထည့်သွင်းပေးပါ။ (ဥပမာ - 09123456789)');
+                alert(t.alert_phone);
                 return;
             }
 
             if (!selectedTime) {
-                alert('ကျေးဇူးပြု၍ အချိန် ရွေးချယ်ပါ။');
+                alert(t.alert_time);
                 return;
             }
 
             const btn = document.getElementById('btnSubmit');
             btn.disabled = true;
-            btn.textContent = '⏳ စောင့်ပါ...';
+            btn.textContent = t.btn_loading;
 
             const data = {
                 name: document.getElementById('bookName').value,
@@ -562,14 +560,14 @@
                     document.getElementById('bookingRef').textContent = result.booking_id;
                     loadBookings();
                 } else {
-                    alert(result.error || 'ရက်ချိန်း ယူရာတွင် အမှားရှိပါသည်။');
+                    alert(result.error || t.alert_error);
                     btn.disabled = false;
-                    btn.textContent = '📅 ရက်ချိန်း အတည်ပြုရန်';
+                    btn.textContent = t.btn_submit;
                 }
             } catch (err) {
-                alert('ဆာဗာနှင့် ချိတ်ဆက်၍ မရပါ။');
+                alert(t.alert_server);
                 btn.disabled = false;
-                btn.textContent = '📅 ရက်ချိန်း အတည်ပြုရန်';
+                btn.textContent = t.btn_submit;
             }
         }
 
@@ -583,12 +581,19 @@
                     list.innerHTML = data.bookings.map(b => {
                         const statusClass = b.status === 'confirmed' ? 'status-confirmed' :
                             b.status === 'completed' ? 'status-completed' : 'status-pending';
-                        const statusText = b.status === 'confirmed' ? 'အတည်ပြုပြီး' :
-                            b.status === 'completed' ? 'ပြီးဆုံးပြီး' : 'စောင့်ဆိုင်းနေဆဲ';
+
+                        let statusText = t.status_pending;
+                        if (b.status === 'confirmed') statusText = t.status_confirmed;
+                        if (b.status === 'completed') statusText = t.status_completed;
+
                         const topics = {
-                            general: 'အထွေထွေ', love: 'အချစ်ရေး', career: 'အလုပ်အကိုင်',
-                            finance: 'ငွေကြေးရေးရာ', health: 'ကျန်းမာရေး', family: 'မိသားစု',
-                            tarot: 'Tarot Card'
+                            general: t.topic_general,
+                            love: t.topic_love,
+                            career: t.topic_career,
+                            finance: t.topic_finance,
+                            health: t.topic_health,
+                            family: t.topic_family,
+                            tarot: t.topic_tarot
                         };
                         return `
                             <div class="booking-item">
@@ -601,7 +606,7 @@
                         `;
                     }).join('');
                 } else {
-                    list.innerHTML = '<div class="empty-state">ရက်ချိန်း မရှိသေးပါ။</div>';
+                    list.innerHTML = `<div class="empty-state">${t.empty_history}</div>`;
                 }
             } catch (e) { }
         }
