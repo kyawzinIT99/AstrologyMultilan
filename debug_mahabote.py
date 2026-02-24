@@ -9,9 +9,9 @@ sys.path.append(os.getcwd())
 from mahabote_engine import MahaboteEngine
 
 def test_su_mon_myint_oo():
-    print("Testing Mahabote Calculation for Su Mon Myint Oo (1978-10-10)...")
+    print("Testing Mahabote Calculation for Dr.Tarot (1978-10-10)...")
     engine = MahaboteEngine()
-    reading = engine.calculate("Su Mon Myint Oo", 1978, 10, 10)
+    reading = engine.calculate("Dr.Tarot", 1978, 10, 10)
     
     print(f"Birth: {reading.birth_date.date()} (MY {reading.myanmar_year}, Rem {reading.year_remainder})")
     print(f"House: {reading.house['name_en']} (ID: {reading.house['id']})")

@@ -13,7 +13,7 @@ DEFAULT_LANG = "my"
 CHAT = {
     "my": {
         "greeting": (
-            "🔮 မင်္ဂလာပါ! **Su Mon Myint Oo မဟာဘုတ် ဗေဒင် & Tarot** မှ ကြိုဆိုပါတယ်။\n\n"
+            "🔮 မင်္ဂလာပါ! **Dr.Tarot မဟာဘုတ် ဗေဒင် & Tarot** မှ ကြိုဆိုပါတယ်။\n\n"
             "သင့်ရဲ့ မွေးနေ့ ဗေဒင် ဟောစာတမ်း ပြုစုပေးပါမယ်။\n"
             "ကျေးဇူးပြု၍ သင့်ရဲ့ **အမည်** ကို ရိုက်ထည့်ပေးပါ။ 🙏"
         ),
@@ -57,7 +57,7 @@ CHAT = {
         "booking_link": (
             "📅 **Tarot ရက်ချိန်း** ယူရန် အောက်ပါ link ကို နှိပ်ပါ:\n\n"
             "👉 [ရက်ချိန်း ယူရန်](/booking)\n\n"
-            "Su Mon Myint Oo နှင့် ဗေဒင် တိုက်ရိုက် ဆွေးနွေးနိုင်ပါမည်။ 🔮"
+            "Dr.Tarot နှင့် ဗေဒင် တိုက်ရိုက် ဆွေးနွေးနိုင်ပါမည်။ 🔮"
         ),
         "refresh": "🙏 ကျေးဇူးပြု၍ ထပ်မံ စတင်ရန် စာမျက်နှာကို refresh လုပ်ပါ။",
         "server_error": "❌ ဆာဗာနှင့် ချိတ်ဆက်၍ မရပါ။ ထပ်မံကြိုးစားပါ။",
@@ -65,7 +65,7 @@ CHAT = {
     },
     "en": {
         "greeting": (
-            "🔮 Welcome to **Su Mon Myint Oo Mahabote Astrology & Tarot**!\n\n"
+            "🔮 Welcome to **Dr.Tarot Mahabote Astrology & Tarot**!\n\n"
             "I will prepare your birth-day astrology reading.\n"
             "Please type your **name** to begin. 🙏"
         ),
@@ -108,7 +108,7 @@ CHAT = {
         "booking_link": (
             "📅 To book a **Tarot session**, click the link below:\n\n"
             "👉 [Book Appointment](/booking)\n\n"
-            "Consult directly with Su Mon Myint Oo. 🔮"
+            "Consult directly with Dr.Tarot. 🔮"
         ),
         "refresh": "🙏 Please refresh the page to start again.",
         "server_error": "❌ Cannot connect to server. Please try again.",
@@ -345,7 +345,7 @@ PROMO = {
         "• သင့်ဘဝ အခြေအနေ တိတိပပ ဖတ်ခြင်း\n"
         "• အချစ်ရေး၊ အလုပ်၊ ငွေကြေး → တိကျသော အဖြေများ\n"
         "• ရှောင်ရန်/လုပ်ရန် အသေးစိတ် လမ်းညွှန်ချက်\n"
-        "• Su Mon Myint Oo နှင့် တိုက်ရိုက် ဆွေးနွေး (၃၅ မိနစ်)\n\n"
+        "• Dr.Tarot နှင့် တိုက်ရိုက် ဆွေးနွေး (၃၅ မိနစ်)\n\n"
         "💰 **အထူးစျေးနှုန်း: ၃၀,၀၀၀ ကျပ် (KPay ဖြင့် ပေးချေနိုင်ပါသည်)** 💰\n\n"
         "🎯 မဟာဘုတ်က ကံကြမ္မာ လမ်းကြောင်းကို ပြပါတယ်...\n"
         "🃏 Tarot က **ဘယ်လို ရွေးချယ်ရမလဲ** ကို ပြပါတယ်!\n\n"
@@ -363,7 +363,7 @@ PROMO = {
         "• Precise reading of your current life situation\n"
         "• Love, career, finances → specific answers\n"
         "• Detailed do/don't guidance\n"
-        "• Direct consultation with Su Mon Myint Oo (35 min)\n\n"
+        "• Direct consultation with Dr.Tarot (35 min)\n\n"
         "💰 **Special price: 30,000 MMK (Pay via KPay)** 💰\n\n"
         "🎯 Mahabote shows you the path of destiny...\n"
         "🃏 Tarot shows you **how to choose**!\n\n"

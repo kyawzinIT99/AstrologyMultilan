@@ -614,9 +614,9 @@ class MahaboteEngine:
 if __name__ == "__main__":
     engine = MahaboteEngine()
 
-    # Test with Su Mon Myint Oo known case
+    # Test with Dr.Tarot known case
     # Oct 10, 1978 = Tuesday (3) in 1340 ME
-    reading = engine.calculate("Su Mon Myint Oo", 1978, 10, 10)
+    reading = engine.calculate("Dr.Tarot", 1978, 10, 10)
     print(engine.format_reading(reading))
     print()
     print(engine.format_forecast(reading))

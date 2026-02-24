@@ -10,11 +10,11 @@ from mahabote_engine import MahaboteEngine
 from pdf_generator import generate_pdf
 
 def generate_test_pdf():
-    print("Generating Test PDF for Su Mon Myint Oo...")
+    print("Generating Test PDF for Dr.Tarot...")
     engine = MahaboteEngine()
     
     # Oct 10, 1978
-    reading = engine.calculate("Su Mon Myint Oo", 1978, 10, 10)
+    reading = engine.calculate("Dr.Tarot", 1978, 10, 10)
     
     pdf_path = generate_pdf(reading, engine)
     print(f"✅ PDF Generated at: {pdf_path}")

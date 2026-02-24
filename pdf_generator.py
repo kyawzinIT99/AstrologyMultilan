@@ -84,9 +84,9 @@ class AstrologyPDF(FPDF):
         self._set_font_safe("B", 18)
         self.set_y(8)
         if self._has_myanmar_font:
-            self.cell(0, 12, "Su Mon Myint Oo မဟာဘုတ် ဗေဒင် & Tarot", align="C", new_x="LMARGIN", new_y="NEXT")
+            self.cell(0, 12, "Dr.Tarot မဟာဘုတ် ဗေဒင် & Tarot", align="C", new_x="LMARGIN", new_y="NEXT")
         else:
-            self.cell(0, 12, "Su Mon Myint Oo Mahabote Astrology & Tarot", align="C", new_x="LMARGIN", new_y="NEXT")
+            self.cell(0, 12, "Dr.Tarot Mahabote Astrology & Tarot", align="C", new_x="LMARGIN", new_y="NEXT")
 
         self.set_text_color(0, 0, 0)
         self.ln(15)
